@@ -1,0 +1,22 @@
+{
+    "name": "prosamael/energomer",
+    "description": "Energomer",
+    "type": "library",
+    "license": "LGPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "CE102R51\\": "src/CE102R51"
+        }
+    },
+    "authors": [
+        {
+            "name": "Иванченко Кирилл Александрович",
+            "email": "kirill.ivanchenko@avanta-telecom.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "ext-sockets": "*"
+    }
+}
