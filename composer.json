@@ -2,7 +2,7 @@
     "name": "prosamael/energomer",
     "description": "Energomer",
     "type": "library",
-    "license": "LGPL-3.0-or-later",
+    "license": "BSD-3-Clause",
     "autoload": {
         "psr-4": {
             "CE102R51\\": "src/CE102R51"

@@ -72,7 +72,7 @@ class Energomer implements ProtocolInterface
     {
         $request = self::getPacked(code: $this->response->getCode($command), data: $data , address: $this->serial, address_source: static::$ADDRESS_SOURCE);
         $this->client->sendRequest($request);
-        echo 'request >> '.bin2hex($request)."</br>";
+        #echo 'request >> '.bin2hex($request)."</br>";
         $this->result = $this->client->getResponse();
         #$hex = bin2hex($this->result);
         #echo 'response << '.$hex."</br>";
@@ -98,11 +98,10 @@ class Energomer implements ProtocolInterface
     /**
      * @throws Exception
      */
-    function get(): void
+    function get(): mixed
     {
 
-
-        echo 'response << '.bin2hex($this->result)."</br>";
+        #echo 'response << '.bin2hex($this->result)."</br>";
         $packed_data = $this->result;
         if(floor(strlen(bin2hex($packed_data))/2) <= 7){
             throw new Exception("Message too short for packed unpacking");
@@ -147,7 +146,7 @@ class Energomer implements ProtocolInterface
         $function = $this->response::$code;
         $result = call_user_func_array(array($this->response, $function[self::hex2str($unpacked_data['AddHL'])]), array($data));
         #echo '<pre>';
-       var_dump($result);
+        return $result;
         //Массив $unpacked_data в HEX
         #$hex_data = array_map('dechex', $result);
         #echo '<pre>'; print_r($hex_data);
